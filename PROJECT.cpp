@@ -1,5 +1,33 @@
 #include<iostream>
+#include<string>
 using namespace std;
+
+class Route {
+private:
+    int routeId;
+    string source;
+    string destination;
+    double fare;
+
+public:
+    Route(int id, string src, string dest, double f) {
+        routeId = id;
+        source = src;
+        destination = dest;
+        fare = f;
+    }
+
+    int getId() { return routeId; }
+    string getSource() { return source; }
+    string getDestination() { return destination; }
+    double getFare() { return fare; }
+
+    void display() {
+        cout << "Route " << routeId << ": " << source << " -> " << destination
+             << " | Fare: " << fare << endl;
+    }
+};
+
 
 int main(){
     int choice;
