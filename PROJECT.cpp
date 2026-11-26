@@ -1,15 +1,10 @@
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
 using namespace std;
-/*class Transportsystem{
-public:
-    addRoute(int id,string src,string dest,int fare){
 
-   
-        return 0;
-
-    }
-};*/
+// 1. Route Class
 class Route {
 private:
     int routeId;
@@ -18,7 +13,6 @@ private:
     double fare;
 
 public:
-   Route();
     Route(int id, string src, string dest, double f) {
         routeId = id;
         source = src;
@@ -32,9 +26,9 @@ public:
     string getSource() {
          return source;
          }
-    string getDestination() { 
-        return destination;
-     }
+    string getDestination() {
+         return destination;
+         }
     double getFare() { 
         return fare;
      }
@@ -42,6 +36,58 @@ public:
     void display() {
         cout << "Route " << routeId << ": " << source << " -> " << destination
              << " | Fare: " << fare << endl;
+    }
+};
+
+// 2. Schedule Class
+class Schedule {
+private:
+    int scheduleId;
+    int routeId;
+    string busNumber;
+    string departureTime;
+    int totalSeats;
+    int bookedSeats;
+
+public:
+    Schedule(int sId, int rId, string bus, string time, int seats, int booked = 0) {
+        scheduleId = sId;
+        routeId = rId;
+        busNumber = bus;
+        departureTime = time;
+        totalSeats = seats;
+        bookedSeats = booked;
+    }
+
+    int getScheduleId() { return scheduleId; }
+    int getRouteId() { return routeId; }
+    string getBusNumber() { return busNumber; }
+    string getDepartureTime() { return departureTime; }
+    int getTotalSeats() { return totalSeats; }
+    int getBookedSeats() { return bookedSeats; }
+
+    int getAvailableSeats() {
+        return totalSeats - bookedSeats;
+    }
+
+    bool bookSeat() {
+        if (bookedSeats < totalSeats) {
+            bookedSeats++;
+            return true;
+        }
+        return false;
+    }
+
+    void cancelSeat() {
+        if (bookedSeats > 0) {
+            bookedSeats--;
+        }
+    }
+
+    void display() {
+        cout << "Schedule " << scheduleId << " | Route " << routeId
+             << " | Bus: " << busNumber << " | Time: " << departureTime
+             << " | Available Seats: " << getAvailableSeats() << "/" << totalSeats << endl;
     }
 };
 
@@ -82,7 +128,7 @@ int main(){
             cin >> dest;
             cout << "Enter Fare: "; 
             cin >> fare;
-            R.Route(id, src, dest, fare);      
+            routeadd(id, src, dest, fare);      
                    
             }
             break;
