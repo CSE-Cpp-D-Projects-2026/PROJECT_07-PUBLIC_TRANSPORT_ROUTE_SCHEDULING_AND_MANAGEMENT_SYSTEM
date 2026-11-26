@@ -1,7 +1,15 @@
 #include<iostream>
 #include<string>
 using namespace std;
+/*class Transportsystem{
+public:
+    addRoute(int id,string src,string dest,int fare){
 
+   
+        return 0;
+
+    }
+};*/
 class Route {
 private:
     int routeId;
@@ -10,6 +18,7 @@ private:
     double fare;
 
 public:
+   Route();
     Route(int id, string src, string dest, double f) {
         routeId = id;
         source = src;
@@ -17,10 +26,18 @@ public:
         fare = f;
     }
 
-    int getId() { return routeId; }
-    string getSource() { return source; }
-    string getDestination() { return destination; }
-    double getFare() { return fare; }
+    int getId() { 
+        return routeId;
+     }
+    string getSource() {
+         return source;
+         }
+    string getDestination() { 
+        return destination;
+     }
+    double getFare() { 
+        return fare;
+     }
 
     void display() {
         cout << "Route " << routeId << ": " << source << " -> " << destination
@@ -30,6 +47,7 @@ public:
 
 
 int main(){
+      Route R; 
     int choice;
       cout<<"=========================================="<<endl;
       cout<<"TRANSPORT MANAGEMENT SYSTEM"<<endl;
@@ -42,16 +60,32 @@ int main(){
        cout<<"4.Manage Schedule"<<endl;
        cout<<"5.Passenger Booking"<<endl;
        cout<<"6.Cancel booking "<<endl;
+       cout<<"7.EXIT"<<endl;
        cout<<"\nEnter your choice"<<endl;
        cin>>choice;
 
        switch(choice){
-        case 1:
+        case 1:{
              cout<<"Selected Managing busses"<<endl;
         break;
-        case 2:
+        case 2:{
              cout<<"Seleced Manageing Routes"<<endl;
-        break;
+            
+            int id;
+            string src, dest;
+            double fare;
+            cout << "Enter Route ID: "; 
+            cin >> id;
+            cout << "Enter Source: "; 
+            cin >> src;
+            cout << "Enter Destination: "; 
+            cin >> dest;
+            cout << "Enter Fare: "; 
+            cin >> fare;
+            R.Route(id, src, dest, fare);      
+                   
+            }
+            break;
         case 3:
          cout<<"Selected Managing drivers"<<endl;
         break;
@@ -72,6 +106,6 @@ int main(){
         break;
 
        }
-   } while(choice!=7);
+   }while(choice!=7);
     return 0;
 }
