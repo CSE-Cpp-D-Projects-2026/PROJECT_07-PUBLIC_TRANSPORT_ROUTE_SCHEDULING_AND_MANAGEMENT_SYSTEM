@@ -162,14 +162,18 @@ int main(){
 
        switch(choice){
         case 1:{
-             cout<<"Add Routes"<<endl;
-             int id;
+            cout<<"Add Routes\n"<<endl;
+            int id;
             string src, dest;
             double fare;
-            cout << "Enter Route ID: "; cin >> id;
-            cout << "Enter Source: "; cin >> src;
-            cout << "Enter Destination: "; cin >> dest;
-            cout << "Enter Fare: "; cin >> fare;
+            cout << "Enter Route ID: ";
+            cin >> id;
+            cout << "Enter Source: ";
+            cin >> src;
+            cout << "Enter Destination: ";
+            cin >> dest;
+            cout << "Enter Fare: "; 
+            cin >> fare;
             system.addRoute(id, src, dest, fare);
             }
         break;
